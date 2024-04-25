@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:motolert/landingPage.dart';
+import 'package:motolert/registerPage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -59,21 +60,22 @@ class _LoginPageState extends State<LoginPage> {
                             SizedBox(
                               height: 40,
                             ),
-                            Image.asset(
-                              'assets/images/logo.png',
-                              width: 120,
-                              height: 110,
-                            ),
+                            
                             SizedBox(
                               height: 20,
                             ),
-                            Text(
-                              "iDance",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w700,
-                                fontSize: 30,
-                              ),
+                            // Text(
+                            //   "iDance",
+                            //   style: TextStyle(
+                            //     color: Colors.white,
+                            //     fontWeight: FontWeight.w700,
+                            //     fontSize: 30,
+                            //   ),
+                            // ),
+                            Image.asset(
+                              'assets/Motolert_1.png',
+                              width: 130,
+                              height: 120,
                             ),
                           ],
                         ),
@@ -98,7 +100,7 @@ class _LoginPageState extends State<LoginPage> {
                       },
                       onChanged: (String value) {},
                       decoration: const InputDecoration(
-                          hintText: "Email",
+                          hintText: "Username",
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(color: Colors.red),
                             borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -188,7 +190,13 @@ class _LoginPageState extends State<LoginPage> {
                   height: 40,
                 ),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const RegisterPage()),
+                        );
+                      },
                   child: const Text(
                     "Register Now",
                     style: TextStyle(
