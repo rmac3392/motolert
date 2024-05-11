@@ -3,7 +3,8 @@ import 'package:motolert/informationModal.dart';
 import 'package:motolert/itemCapture.dart';
 
 class ItemCapture extends StatefulWidget {
-  const ItemCapture({super.key});
+  ItemCapture({super.key, required this.imgs});
+  final List<dynamic> imgs;
 
   @override
   State<ItemCapture> createState() => _ItemCaptureState();
@@ -13,7 +14,7 @@ class _ItemCaptureState extends State<ItemCapture> {
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      itemCount: 10,
+      itemCount: widget.imgs.length,
       itemBuilder: (context, index) {
         return InkWell(
           splashColor: Colors.indigo[300],
@@ -21,7 +22,7 @@ class _ItemCaptureState extends State<ItemCapture> {
             showDialog(
               context: context,
               builder: (BuildContext context) {
-                return InformationModal();
+                return InformationModal(fName: "http://motolert.c1.is/"+widget.imgs[index]['sFilename']);
               },
             );
           },
@@ -40,8 +41,8 @@ class _ItemCaptureState extends State<ItemCapture> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(
                     7.0), // Set the border radius for the image inside the border
-                child: Image.asset(
-                  "assets/profile.jpg",
+                child: Image.network(
+                  "http://motolert.c1.is/"+widget.imgs[index]['sFilename'],
                   height: 45, // Set the height of the image
                   width: 45, // Set the width of the image
                   fit: BoxFit

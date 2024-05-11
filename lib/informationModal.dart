@@ -1,14 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class InformationModal extends StatelessWidget {
+class InformationModal extends StatefulWidget {
+  InformationModal({super.key, required this.fName});
+  final String fName;
+  @override
+  State<InformationModal> createState() => _InformationModalState();
+}
+
+class _InformationModalState extends State<InformationModal> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Align(
           alignment: Alignment.center,
-          child: Image.asset(
-            "assets/profile.jpg",
+          child: Image.network(
+            widget.fName,
             height: 300, // Set the height of the image
             width: 200, // Set the width of the image
             fit: BoxFit.cover,
