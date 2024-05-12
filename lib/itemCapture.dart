@@ -22,7 +22,7 @@ class _ItemCaptureState extends State<ItemCapture> {
             showDialog(
               context: context,
               builder: (BuildContext context) {
-                return InformationModal(fName: "http://motolert.c1.is/"+widget.imgs[index]['sFilename']);
+                return InformationModal(fName: "http://motolert.c1.is/uploads/"+widget.imgs[index]['sFilename']);
               },
             );
           },
@@ -42,7 +42,7 @@ class _ItemCaptureState extends State<ItemCapture> {
                 borderRadius: BorderRadius.circular(
                     7.0), // Set the border radius for the image inside the border
                 child: Image.network(
-                  "http://motolert.c1.is/"+widget.imgs[index]['sFilename'],
+                  "http://motolert.c1.is/uploads/"+widget.imgs[index]['sFilename'],
                   height: 45, // Set the height of the image
                   width: 45, // Set the width of the image
                   fit: BoxFit
